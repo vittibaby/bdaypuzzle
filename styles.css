@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #FFB6C1, #B6E2FF);  /* Pastel pink to pastel blue */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+.challenge-text {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2),
+                 -1px -1px 0 rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: bounceIn 1s ease forwards;
+}
+
+.yes-button {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    padding: 15px 40px;
+    background: #E6B8AF;  /* Pastel coral */
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.yes-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background: #FFB6C1;  /* Lighter pastel pink on hover */
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Puzzle page styles */
+.puzzle-container {
+    display: none;
+    max-width: 90vw;
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.puzzle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin: 20px 0;
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.puzzle-piece {
+    aspect-ratio: 1;
+    background-size: 300% 300%;
+    background-position: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    width: 100%;
+    height: 100%;
+}
+
+.puzzle-piece:hover {
+    transform: scale(0.98);
+}
+
+.celebration-text {
+    font-size: 2.5rem;
+    color: #fff;
+    text-align: center;
+    margin: 20px 0;
+    opacity: 0;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.celebration-message {
+    animation: flyIn 0.8s ease-out forwards;
+    transform: translateX(-100vw);
+    color: #4A90E2;  /* Deeper pastel blue */
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15),
+                 -1px -1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.birthday-message {
+    animation: bounceIn 1s ease 0.5s forwards;
+    opacity: 0;
+    color: #E75480;  /* Deeper pastel pink */
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15),
+                 -1px -1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.prize-message {
+    animation: fadeIn 1s ease 1s forwards;
+    opacity: 0;
+    color: #D2691E;  /* Deeper pastel coral */
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15),
+                 -1px -1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.restart-button {
+    font-size: 1.2rem;
+    padding: 12px 30px;
+    background: #B6E2FF;  /* Pastel blue */
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin: 20px auto;
+    display: block;
+}
+
+.restart-button:hover {
+    background: #A5D8FF;  /* Slightly darker pastel blue on hover */
+    transform: scale(1.05);
+}
+
+@keyframes flyIn {
+    0% {
+        transform: translateX(-100vw) rotate(-10deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(0) rotate(10deg);
+    }
+    100% {
+        transform: translateX(0) rotate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0) rotate(-20deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(10deg);
+    }
+    75% {
+        transform: scale(0.9) rotate(-5deg);
+    }
+    100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 600px) {
+    .challenge-text {
+        font-size: 2rem;
+    }
+    
+    .yes-button {
+        font-size: 1.2rem;
+        padding: 12px 30px;
+    }
+    
+    .puzzle-container {
+        padding: 10px;
+    }
+} 
